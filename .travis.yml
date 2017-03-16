@@ -1,0 +1,17 @@
+language: elixir
+elixir:
+- 1.4.1
+otp_release:
+- 18.2
+sudo: false
+addons:
+  postgresql: '9.4'
+before_script:
+- psql -c 'create database cap_test;' -U postgres
+deploy:
+  provider: heroku
+  api_key:
+    secure: Cx6PQS9ASr2LtCLC085NU30jvHtAE7L+sHVsXFsh40t6UqtlrCGVbJGFGc/j/jf8KWrSFHuGffdpDCUWFhvcvcgmZx+pqIhuBN414Dxu0Tkp6OoA8XoofDeUaFEshsABB+RI43ZVpVXHBx14zLgEM0+PS6FNOdaspU19dZaExKadzK9KgVchV/NzLmY8eKFiHrEaRGLVyERCnzDMjXceXGHLVQ7pguxrPqXPlCVVqsSwpwZfDX/4giapYAqNXsfVjX50d7YfOczekAb8UlreWPjs9GTtekyH3bUsRiLe3CRv3e5cgSJLzcLQCDDRx1pb6Ihoc4KZXosDslmh9mTE9hochcVKDqQeKyUDOjnRZ+mgLvEjEno8NdF+xGbwueKumNKTvaZIub3+nf42bGpvs5vzPjTFXL7JrPMHfsojoyZSCgTI9yA4IHanOAQeKQl098YCF8qlYsnC5jPhDdwFlH2UWl/KeJ7We0kGaMLMgMm3rVXHC/HqY3sNRSwvDxHJ2ByzNxuXGCxeJ2r2cXyft5l6e28zI01qgswe3X7i0W0umLlZfDR/Ib1LYen5yWRhEi8couLzshHjyYEupaUwMTN9MTmi1MQp6HWSNhkE7Ir6XWIHIWovfplFSrgE/mCXknb3oIu/iI11GSR9R4qnI1Mi7TZpBbrI8Q5galEAGOI=
+  app: peaceful-caverns-78635
+  on:
+    repo: guskou/cap-api
