@@ -9,7 +9,7 @@ defmodule Cap.Router do
     pipe_through :api
     # Registration
     post "/register", RegistrationController, :create
-    # Route stuff to our SessionController
-    resources "/session", SessionController, only: [:index]
+    # Login
+    post "/token", SessionController, :create, as: :login
   end
 end
