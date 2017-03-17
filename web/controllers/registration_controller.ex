@@ -15,7 +15,7 @@ defmodule Cap.RegistrationController do
       {:ok, user} ->
         conn
         |> put_status(:created)
-        |> render(Cap.UserView, "show.json", user: user)
+        |> render(Cap.UserView, "show.json-api", data: user)
       {:error, changeset} ->
         conn
         |> put_status(:unprocessable_entity)

@@ -23,6 +23,10 @@ defmodule Cap.Router do
 
   scope "/api", Cap do
     pipe_through :api_auth
-    get "/user/current", UserController, :current
+    get "/user/current", UserController, :current, as: :current_user
+    resources "/user", UserController, only: [:show, :index] do
+      get "/review_packets", ReviewPacketController, :index, as: :review_packets
+    end
+    resources "/review_packets", ReviewPacketController, except: [:new, :edit]
   end
 end
