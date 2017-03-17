@@ -26,7 +26,9 @@ defmodule Cap.Router do
     get "/user/current", UserController, :current, as: :current_user
     resources "/user", UserController, only: [:show, :index] do
       get "/review_packets", ReviewPacketController, :index, as: :review_packets
+      get "/reviews", ReviewController, :index, as: :reviews
     end
     resources "/review_packets", ReviewPacketController, except: [:new, :edit]
+    resources "/reviews", ReviewController, except: [:new, :edit]
   end
 end
